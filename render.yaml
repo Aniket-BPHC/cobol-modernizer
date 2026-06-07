@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: cobol-modernizer
+    runtime: python
+    region: oregon
+    plan: starter        # free tier — upgrade to standard for always-on
+
+    buildCommand: |
+      apt-get update -qq
+      apt-get install -y gnucobol
+      pip install -r requirements.txt
+
+    startCommand: >
+      streamlit run app.py
+      --server.port $PORT
+      --server.address 0.0.0.0
+      --server.headless true
+
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false          # set in Render dashboard — never in this file
+
+      - key: COBC_AVAILABLE
+        value: "1"           # gnucobol is installed in buildCommand above
+
+      - key: IS_HOSTED
+        value: "1"
+
+      # Uncomment after training SLMs and pushing to HuggingFace Hub:
+      # - key: HF_CICS_ADAPTER_REPO
+      #   value: "yourname/cobol-cics-adapter"
+      # - key: HF_VSAM_ADAPTER_REPO
+      #   value: "yourname/cobol-vsam-adapter"
+
+    autoDeploy: true       # redeploy on every git push to main

@@ -1,0 +1,15 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. COMPOUND-INTEREST.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 PRINCIPAL      PIC S9(7)V99 VALUE 10000.00.
+       01 ANNUAL-RATE    PIC S9(3)V99 VALUE 5.25.
+       01 YEARS          PIC 9(3)    VALUE 10.
+       01 COMPOUND-FREQ  PIC 9(3)    VALUE 12.
+       01 RESULT         PIC S9(12)V99.
+       PROCEDURE DIVISION.
+           COMPUTE RESULT = PRINCIPAL *
+               ((1 + ANNUAL-RATE / 100 / COMPOUND-FREQ)
+               ** (COMPOUND-FREQ * YEARS)).
+           DISPLAY "Maturity Amount: " RESULT.
+           STOP RUN.
