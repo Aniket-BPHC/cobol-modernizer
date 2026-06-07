@@ -102,7 +102,7 @@ with st.sidebar:
         sidebar_key = st.text_input("OpenAI API Key", type="password",
             help="Enter your key here, or set OPENAI_API_KEY in environment/secrets.")
 
-    model = st.selectbox("Model", ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo"])
+    model = st.selectbox("Model", ["gpt-4o-mini", "gpt-4o", "gpt-4-turbo"])
     max_retries = st.slider("Max retries", 1, 8, 5)
     top_k = st.slider("RAG context chunks", 2, 8, 5)
 
