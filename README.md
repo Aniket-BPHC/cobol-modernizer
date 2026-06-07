@@ -186,9 +186,3 @@ Three properties make this system suitable as a foundation for production bank m
 **Data sovereignty.** The SLMs run locally. Sensitive COBOL source code — which may contain proprietary business logic, customer data schemas, or regulatory calculation methods — never leaves the institution's infrastructure. Only anonymised or synthetic code needs to reach an external API.
 
 **Auditability.** Every translation attempt is logged with stage, status, and the exact feedback fed to the model. The retry history is a complete audit trail of how the final Python was produced, which is a compliance requirement in regulated financial environments.
-
----
-
-## License
-
-MIT
