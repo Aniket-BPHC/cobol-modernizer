@@ -26,10 +26,9 @@ services:
       - key: IS_HOSTED
         value: "1"
 
-      # Uncomment after training SLMs and pushing to HuggingFace Hub:
-      # - key: HF_CICS_ADAPTER_REPO
-      #   value: "yourname/cobol-cics-adapter"
-      # - key: HF_VSAM_ADAPTER_REPO
-      #   value: "yourname/cobol-vsam-adapter"
+      - key: HF_CICS_ADAPTER_REPO
+        value: "FloofFace/cobol-cics-adapter"
+      - key: HF_VSAM_ADAPTER_REPO
+        value: "FloofFace/cobol-vsam-adapter"
 
     autoDeploy: true       # redeploy on every git push to main
